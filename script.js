@@ -1,3 +1,5 @@
+const movieElement = document.querySelector('.movie')
+const listMovieElement = document.querySelector('.listMovies')
 const button = document.querySelector('#button')
 const title = document.querySelector('#title')
 const img = document.querySelector("#img")
@@ -22,10 +24,31 @@ const test = async () => {
 
 const searchMovie = async () => {
     const movie = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&language=pt-BR&query=${search}`).then(response => response.json())
+    const movies = movie.results
     let contagem = 0
+    console.log(movie)
+    const listMovies = movies.map(function (movie) {
+        const titleMovie = movie.title
+        const poster = movie.poster_path
+        return [
+            { title: titleMovie },
+            { poster: poster }
+        ]
+    })
 
+    for (contagem < listMovies.length) {
+        let cloneMovie = movieElement.cloneNode(true)
+        listMovieElement.appendChild(clone)
 
+    }
 
+    console.log(listMovies)
+}
+
+const clone = () => {
+    let seuNode = document.getElementById('movie')
+    let clone = seuNode.cloneNode(true)
+    lisMovie.appendChild(clone)
 }
 
 button.addEventListener('click', searchMovie)
