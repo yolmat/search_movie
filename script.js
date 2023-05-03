@@ -26,11 +26,9 @@ const searchMovie = async () => {
     const amountMoviesInPage = movies.length
 
     for (let i = 0; i < amountMoviesInPage; i++) {
-        console.log(movies[i].backdrop_path)
-        console.log(movies[i].title)
 
         const titleMovie = movies[i].title
-        const backgroundMovie = movies[i].id
+        const backgroundMovie = movies[i].poster_path
 
         const newMovie = document.createElement('div')
         newMovie.classList.add(`movie`)
@@ -41,7 +39,7 @@ const searchMovie = async () => {
 
         const newBackGroundMovie = document.createElement('img')
         newBackGroundMovie.classList.add(`poster${i}`)
-        newBackGroundMovie.setAttribute("src", `https://api.themoviedb.org/3/movie/${backgroundMovie}/images?api_key=${key}&language=pt-BR`);
+        newBackGroundMovie.setAttribute("src", `https://image.tmdb.org/t/p/w500${backgroundMovie}`);
         newBackGroundMovie.setAttribute("alt", "poster");
         movieElement.appendChild(newBackGroundMovie)
 
