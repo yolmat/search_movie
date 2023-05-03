@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Procura de filme</title>
   </head>
   <body>
-    <div class="listMovies">
-      <div class="movie">
-        <img id="img" src alt="poster" />
-        <h1 id="title">title</h1>
+    <div class="container">
+      <div class="searchMovie">
+        <label>
+          Procure seu filme
+          <input type="text" placeholder="Ex: Batman" />
+        </label>
+        <button id="button">all movies</button>
+      </div>
+
+      <div class="listMovies">
+        <div class="movie">
+          <img
+            id="img"
+            src="https://image.tmdb.org/t/p/w500/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg"
+            alt="poster"
+          />
+          <h1 id="title">Batman</h1>
+        </div>
       </div>
     </div>
-
-    <button id="button">all movies</button>
   </body>
 
   <script src="./script.js"></script>
