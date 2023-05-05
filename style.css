@@ -15,6 +15,20 @@ body {
     margin: 10px 15px;
 }
 
+.selectLanguage {
+    padding: 3px 2px;
+    background: none;
+    border: #ffff2b 2px solid;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.languege {
+    background-color: #ffff2b;
+    color: #000;
+}
+
 .searchMovie {
     display: flex;
     flex-direction: row;
