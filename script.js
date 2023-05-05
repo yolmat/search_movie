@@ -27,7 +27,9 @@ const searchMovie = async () => {
     }
 
     const search = input.value;
-    const movie = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=1&language=pt-BR&query=${search}`).then(response => response.json())
+    const realSearch = search.replace(" ", "%20")
+
+    const movie = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=1&language=pt-BR&query=${realSearch}`).then(response => response.json())
 
     const amountPagesSearch = movie.total_pages
 
