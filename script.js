@@ -1,21 +1,19 @@
 const listMovieElement = document.querySelector('.listMovies')
 const input = document.querySelector("#input")
 const button = document.querySelector('#button')
-const baseURL = "https://image.tmdb.org/t/p/w200/"
+const languege = document.querySelector(".selectLanguage")
 
 const key = "b7c257791c7c9a9552fbce87526bb019"
 
-const test = async () => {
-    const movie = await fetch('https://api.themoviedb.org/3/movie/502356?api_key=b7c257791c7c9a9552fbce87526bb019&language=pt-BR').then(response => response.json())
-    const test = await fetch("https://api.themoviedb.org/3/search/movie?api_key=b7c257791c7c9a9552fbce87526bb019&language=pt-BR&query=batman&page=1&include_adult=false").then(response => response.json())
-    console.log(test.results)
-    let values = test.results.map(function (element) {
-        return element.title
-    })
-    console.log(values)
-    const newImg = baseURL + movie.poster_path
-    img.setAttribute('src', newImg)
-    title.innerHTML = movie.title
+function getLanguege() {
+    let pageLanguege = languege.value
+    return pageLanguege
+}
+
+function changeLanguegePage() {
+    const principalLanguage = getLanguege()
+
+
 }
 
 const searchMovie = async () => {
@@ -64,6 +62,8 @@ const searchMovie = async () => {
         }
     }
 }
+
+languege.addEventListener('change', changeLanguegePage)
 
 button.addEventListener('click', searchMovie)
 document.addEventListener("keypress", function (e) {
