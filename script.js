@@ -7,13 +7,26 @@ const key = "b7c257791c7c9a9552fbce87526bb019"
 
 function getLanguege() {
     let pageLanguege = languege.value
+
+    if (pageLanguege == 'Portugues-BR') {
+        pageLanguege = 'pt-BR'
+    } else {
+        pageLanguege = 'En'
+    }
     return pageLanguege
 }
 
 function changeLanguegePage() {
     const principalLanguage = getLanguege()
+    const textLabel = document.querySelector('.labelText')
 
-
+    if (principalLanguage === 'pt-BR') {
+        textLabel.innerHTML = 'Procure seu filme:'
+        button.innerHTML = "Procurar"
+    } else {
+        textLabel.innerHTML = 'Search for your movie:'
+        button.innerHTML = "Search"
+    }
 }
 
 const searchMovie = async () => {
