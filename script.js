@@ -37,15 +37,16 @@ const searchMovie = async () => {
         oldElement[i].remove()
     }
 
+    const languageMovies = getLanguege()
     const search = input.value;
     const realSearch = search.replace(" ", "%20")
 
-    const movie = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=1&language=pt-BR&query=${realSearch}`).then(response => response.json())
+    const movie = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=1&language=${languageMovies}&query=${realSearch}`).then(response => response.json())
 
     const amountPagesSearch = movie.total_pages
 
     for (let page = 1; page < amountPagesSearch; page++) {
-        const allMoviesInPages = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=${page}&language=pt-BR&query=${search}`).then(response => response.json())
+        const allMoviesInPages = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=${page}&language=${languageMovies}&query=${search}`).then(response => response.json())
 
         const moviesAllPages = allMoviesInPages.results
         const amountMoviesInPage = moviesAllPages.length
